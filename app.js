@@ -5,7 +5,7 @@
  * 3. Thay FORM_ACTION và các mã entry bên dưới. Không cần backend riêng.
  */
 const GOOGLE_FORM = {
-  FORM_ACTION: "https://docs.google.com/forms/d/e/1FAIpQLSdikvkwKddIxIBAkOG-ktBzvH5DkzFYC07l9NRolk34tfBAgQ/viewform?usp=header", // Ví dụ: https://docs.google.com/forms/d/e/FORM_ID/formResponse
+  FORM_ACTION: "https://docs.google.com/forms/d/e/1FAIpQLSdikvkwKddIxIBAkOG-ktBzvH5DkzFYC07l9NRolk34tfBAgQ/formResponse", // Ví dụ: https://docs.google.com/forms/d/e/FORM_ID/formResponse
   PLACE_ENTRY: "entry.373653805",
   FOOD_ENTRY: "entry.1969045336",
   MESSAGE_ENTRY: "entry.923988375",
