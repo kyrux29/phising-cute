@@ -30,3 +30,4 @@ Mở `email-template.html`, thay `YOUR_WEBSITE_URL` bằng link website đã dep
 - Đổi ảnh bằng cách thay đường dẫn `*.jpeg` trong `index.html`.
 - Đổi lựa chọn địa điểm/món ăn trong thuộc tính `value` và phần chữ hiển thị; giá trị gửi về Google Form lấy từ `value`.
 # phising-cute
+# phising-cute
