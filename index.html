@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#f5dfe6">
+  <meta name="description" content="Một lời mời riêng dành cho em.">
+  <title>Một lời mời dành cho em</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='18' fill='%23111111'/%3E%3Cpath d='M32 49S13 38 13 24c0-9 11-13 19-4 8-9 19-5 19 4 0 14-19 25-19 25Z' fill='%23e95763'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="styles.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <main>
+    <section class="intro" id="intro" aria-labelledby="intro-title">
+      <div class="intro__panel">
+        <div class="intro__brand">THƯ GỬI EM</div>
+        <div class="intro__copy">
+          <p class="kicker">Một lá thư nhỏ</p>
+          <h1 id="intro-title">Gửi em, người anh thương.</h1>
+          <p class="intro__lead">Anh có một lời mời nhỏ. Một buổi chỉ có hai đứa, còn em chọn nơi mình muốn đến.</p>
+          <button class="button button--accent" id="open-case" type="button"><span>Mở thư</span><span aria-hidden="true">♡</span></button>
+        </div>
+        <p class="intro__fineprint">Bức thư này không hỏi mật khẩu hoặc dữ liệu nhạy cảm.</p>
+      </div>
+      <div class="intro__portrait"><img src="27.jpeg" alt="Chân dung người anh muốn mời đi hẹn hò"><span class="photo-note">tấm anh rất thích ♡</span></div>
+    </section>
+
+    <section class="case-file" id="case-file" aria-labelledby="case-title" hidden>
+      <header class="case-header">
+        <a class="brand" href="#case-file" aria-label="Thư gửi em, đầu trang">♡</a>
+        <p>Một bức thư nhỏ dành cho em</p>
+        <span>GỬI BẰNG THƯƠNG NHỚ</span>
+      </header>
+
+      <section class="hero">
+        <div class="hero__copy">
+          <h2 id="case-title" tabindex="-1">Hẹn hò với anh nhé?</h2>
+          <p>Anh sẽ lo phần chuẩn bị. Em chọn nơi và món khiến mình thấy vui nhất.</p>
+        </div>
+        <div class="contact-sheet" aria-label="Những khoảnh khắc của em">
+          <img class="contact-sheet__wide" src="30.jpeg" alt="Một khoảnh khắc đáng yêu của em">
+          <img src="18.jpeg" alt="Em bên cây thông Noel">
+          <img src="23.jpeg" alt="Một khoảnh khắc tinh nghịch của em">
+          <aside class="love-note"><span>P.S.</span><p>Anh chọn ảnh rất lâu vì tấm nào em cũng đáng yêu.</p></aside>
+        </div>
+      </section>
+
+      <section class="mission" id="mission" aria-labelledby="mission-title">
+        <div class="mission__heading">
+          <h2 id="mission-title">Em thích buổi hẹn thế nào?</h2>
+          <p>Ba câu hỏi nhỏ. Cứ chọn theo cảm giác đầu tiên của em.</p>
+        </div>
+
+        <div class="progress" aria-label="Tiến độ: bước 1 trên 3">
+          <div class="progress__meta"><span id="step-name">Mình đi đâu nhỉ?</span><span id="step-count">1 / 3</span></div>
+          <div class="progress__line"><span id="progress-bar"></span></div>
+        </div>
+
+        <form id="date-form" novalidate>
+          <div class="form-step is-active" data-step="1">
+            <fieldset>
+              <legend tabindex="-1">Em muốn chúng mình đi đâu?</legend>
+              <p class="question-note">Chọn một nơi khiến em muốn sửa soạn và ra ngoài ngay.</p>
+              <div class="choice-grid choice-grid--places">
+                <label class="place-choice place-choice--wide">
+                  <input type="radio" name="place" value="Ngắm thành phố về đêm">
+                  <img src="8.jpeg" alt=""><span class="choice-overlay"></span>
+                  <span class="choice-copy"><small>A</small><strong>Ngắm thành phố về đêm</strong><span>Gió mát, ánh đèn, hai đứa mình</span></span><span class="choice-state" aria-hidden="true"><span>Chọn</span><b>Đã chọn ♡</b></span>
+                </label>
+                <label class="place-choice">
+                  <input type="radio" name="place" value="Picnic lúc hoàng hôn">
+                  <img src="17.jpeg" alt=""><span class="choice-overlay"></span>
+                  <span class="choice-copy"><small>B</small><strong>Picnic lúc hoàng hôn</strong><span>Một chiếc chăn và đồ ăn em thích</span></span><span class="choice-state" aria-hidden="true"><span>Chọn</span><b>Đã chọn ♡</b></span>
+                </label>
+                <label class="place-choice">
+                  <input type="radio" name="place" value="Cà phê bí mật">
+                  <img src="26.jpeg" alt=""><span class="choice-overlay"></span>
+                  <span class="choice-copy"><small>C</small><strong>Một quán cà phê yên tĩnh</strong><span>Ngồi cạnh nhau và nói chuyện thật lâu</span></span><span class="choice-state" aria-hidden="true"><span>Chọn</span><b>Đã chọn ♡</b></span>
+                </label>
+                <label class="place-choice place-choice--text">
+                  <input type="radio" name="place" value="Anh quyết định">
+                  <span class="choice-copy"><small>D</small><strong>Để anh quyết định</strong><span>Em chỉ cần xuất hiện. Anh giữ phần bất ngờ.</span></span><span class="choice-state" aria-hidden="true"><span>Chọn</span><b>Đã chọn ♡</b></span>
+                </label>
+              </div>
+              <p class="field-error" data-error="place" role="alert"></p>
+            </fieldset>
+          </div>
+
+          <div class="form-step" data-step="2" hidden>
+            <fieldset>
+              <legend tabindex="-1">Mình ăn gì hôm đó?</legend>
+              <p class="question-note">Không cần nghĩ lâu. Món đầu tiên làm em thấy đói là đáp án.</p>
+              <div class="food-list">
+                <label class="food-choice"><input type="radio" name="food" value="Bữa tối thật lãng mạn"><span class="food-choice__index">A</span><span><strong>Bữa tối thật lãng mạn</strong><small>Mỳ Ý, ánh nến và một chiếc bàn nhỏ</small></span><span class="food-choice__action"><span>Chọn</span><b>Đã chọn ♡</b></span></label>
+                <label class="food-choice"><input type="radio" name="food" value="Đồ nướng Hàn Quốc"><span class="food-choice__index">B</span><span><strong>Đồ nướng Hàn Quốc</strong><small>Ăn thật no, nói chuyện thật nhiều</small></span><span class="food-choice__action"><span>Chọn</span><b>Đã chọn ♡</b></span></label>
+                <label class="food-choice"><input type="radio" name="food" value="Food tour vỉa hè"><span class="food-choice__index">C</span><span><strong>Food tour vỉa hè</strong><small>Mỗi nơi một món, đi bộ qua vài con phố</small></span><span class="food-choice__action"><span>Chọn</span><b>Đã chọn ♡</b></span></label>
+                <label class="food-choice"><input type="radio" name="food" value="Một tour đồ ngọt"><span class="food-choice__index">D</span><span><strong>Một tour đồ ngọt</strong><small>Bánh, kem và bất cứ thứ gì em muốn thử</small></span><span class="food-choice__action"><span>Chọn</span><b>Đã chọn ♡</b></span></label>
+              </div>
+              <p class="field-error" data-error="food" role="alert"></p>
+            </fieldset>
+          </div>
+
+          <div class="form-step" data-step="3" hidden>
+            <fieldset>
+              <legend tabindex="-1">Nói anh nghe một điều nhé</legend>
+              <p class="question-note">Một mong muốn cho buổi hẹn, hoặc điều em đang muốn nói với anh.</p>
+              <div class="letter-field">
+                <label for="message">Lời nhắn của em</label>
+                <textarea id="message" name="message" rows="6" maxlength="500" placeholder="Viết ở đây..."></textarea>
+                <span class="character-count"><b id="character-count">0</b>/500</span>
+              </div>
+              <label class="date-field" for="date-choice"><span>Ngày em thấy thuận tiện</span><input type="date" name="date" id="date-choice"></label>
+              <p class="field-error" data-error="message" role="alert"></p>
+            </fieldset>
+          </div>
+
+          <div class="form-actions">
+            <button class="button button--quiet" id="back-button" type="button" hidden>Quay lại</button>
+            <button class="button button--accent" id="next-button" type="button"><span>Tiếp tục</span><span aria-hidden="true">♡</span></button>
+          </div>
+        </form>
+      </section>
+
+      <section class="final-note" aria-label="Lời nhắn cuối">
+        <img src="28.jpeg" alt="Một kỷ niệm đẹp của em">
+        <blockquote><p>Địa điểm có thể thay đổi. Món ăn cũng vậy. Người anh muốn đi cùng vẫn luôn là em.</p><footer>Người thương em ♡</footer></blockquote>
+      </section>
+
+      <footer class="page-footer"><p>THƯ GỬI EM <span id="current-year"></span></p><p>Một món quà riêng tư, không thu mật khẩu hoặc dữ liệu nhạy cảm.</p></footer>
+    </section>
+  </main>
+
+  <dialog class="success-dialog" id="success-dialog">
+    <span class="dialog-label">Thư đã gửi</span>
+    <h2>Thư đến tay anh rồi.</h2>
+    <p id="success-summary">Phần còn lại cứ để anh lo nhé.</p>
+    <button class="button button--accent" id="close-success" type="button"><span>Khép thư</span></button>
+  </dialog>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+</body>
+</html>
