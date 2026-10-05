@@ -3,114 +3,221 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#f5dfe6">
+  <meta name="theme-color" content="#eadde0">
   <meta name="description" content="Một lời mời riêng dành cho em.">
   <title>Một lời mời dành cho em</title>
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='18' fill='%23111111'/%3E%3Cpath d='M32 49S13 38 13 24c0-9 11-13 19-4 8-9 19-5 19 4 0 14-19 25-19 25Z' fill='%23e95763'/%3E%3C/svg%3E">
+  <link rel="preload" href="assets/fonts/newsreader-vietnamese.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/newsreader-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/dancing-script-vietnamese.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/dancing-script-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="styles.css">
   <script src="app.js" defer></script>
 </head>
 <body>
+  <div class="ambient-scene" aria-hidden="true">
+    <div class="ambient-scene__photo"></div>
+    <div class="ambient-scene__veil"></div>
+    <span class="ambient-scene__memory ambient-scene__memory--one"></span>
+    <span class="ambient-scene__memory ambient-scene__memory--two"></span>
+    <img class="ambient-scene__camellia" src="assets/love-letter-bouquet.webp" alt="">
+    <span class="ambient-scene__light ambient-scene__light--one"></span>
+    <span class="ambient-scene__light ambient-scene__light--two"></span>
+  </div>
+  <div class="petal-layer" id="petal-layer" aria-hidden="true"></div>
+  <div class="magic-layer" id="magic-layer" aria-hidden="true"></div>
+  <div class="glimmer-layer" id="glimmer-layer" aria-hidden="true"></div>
+  <button class="motion-toggle" id="motion-toggle" type="button" aria-pressed="false">Tạm dừng hiệu ứng</button>
   <main>
     <section class="intro" id="intro" aria-labelledby="intro-title">
       <div class="intro__panel">
-        <div class="intro__brand">THƯ GỬI EM</div>
+        <div class="intro__brand">KYRUX GỬI CHAFY</div>
+        <div class="letter-stamp" aria-hidden="true"><img src="assets/love-letter-sprig.webp" alt=""><span>thương gửi em</span></div>
+        <div class="postmark" aria-label="Kyrux gửi Chafy"><span>KYRUX</span><i>gửi</i><strong>CHAFY</strong></div>
+        <div class="letter-address" aria-label="Người gửi Kyrux, người nhận Chafy"><span>Gửi Chafy</span><span>Từ Kyrux</span></div>
+        <img class="intro__camellia" src="assets/love-letter-sprig.webp" alt="">
         <div class="intro__copy">
-          <p class="kicker">Một lá thư nhỏ</p>
-          <h1 id="intro-title">Gửi em, người anh thương.</h1>
-          <p class="intro__lead">Anh có một lời mời nhỏ. Một buổi chỉ có hai đứa, còn em chọn nơi mình muốn đến.</p>
-          <button class="button button--accent" id="open-case" type="button"><span>Mở thư</span><span aria-hidden="true">♡</span></button>
+          <p class="kicker">Anh định nhắn tin, xong lại ngồi làm cái này</p>
+          <h1 id="intro-title">Chafy, anh có chuyện này <span class="handwritten">muốn hỏi em.</span></h1>
+          <p class="intro__lead">Không có gì nghiêm trọng đâu. Chỉ là anh muốn rủ em đi chơi tử tế một hôm.</p>
+          <button class="button button--accent" id="open-case" type="button"><span>Mở thư nhé</span><span aria-hidden="true">♡</span></button>
         </div>
-        <p class="intro__fineprint">Bức thư này không hỏi mật khẩu hoặc dữ liệu nhạy cảm.</p>
+        <p class="intro__fineprint">P.S. Anh lo đường đi. Em chỉ cần chọn thứ em thích.</p>
+        <div class="letter-garland" aria-hidden="true"><img src="assets/love-letter-garland.webp" alt="" width="1500" height="500"></div>
       </div>
-      <div class="intro__portrait"><img src="27.jpeg" alt="Chân dung người anh muốn mời đi hẹn hò"><span class="photo-note">tấm anh rất thích ♡</span></div>
+      <div class="intro__portrait">
+        <img src="27.jpeg" alt="Chân dung người anh muốn mời đi hẹn hò">
+        <span class="floral-sprig floral-sprig--portrait" aria-hidden="true"><img src="assets/love-letter-bouquet.webp" alt="" width="1100" height="733"></span>
+        <span class="floral-sprig floral-sprig--portrait-top" aria-hidden="true"><img src="assets/love-letter-sprig.webp" alt="" width="540" height="810"></span>
+        <span class="photo-note">anh chốt tấm này sau một hồi lựa tới lựa lui ♡</span>
+      </div>
     </section>
 
     <section class="case-file" id="case-file" aria-labelledby="case-title" hidden>
       <header class="case-header">
         <a class="brand" href="#case-file" aria-label="Thư gửi em, đầu trang">♡</a>
-        <p>Một bức thư nhỏ dành cho em</p>
-        <span>GỬI BẰNG THƯƠNG NHỚ</span>
+        <p>Kyrux gửi Chafy</p>
+        <span>CHỦ NHẬT CỦA HAI ĐỨA</span>
       </header>
 
       <section class="hero">
         <div class="hero__copy">
-          <h2 id="case-title" tabindex="-1">Hẹn hò với anh nhé?</h2>
-          <p>Anh sẽ lo phần chuẩn bị. Em chọn nơi và món khiến mình thấy vui nhất.</p>
+          <div class="flower-keepsake" aria-hidden="true"><img src="assets/love-letter-sprig.webp" alt=""><span>Một nhành hoa, một lời hẹn.</span></div>
+          <h2 id="case-title" tabindex="-1">Chafy, hôm nào mình <span class="handwritten">đi chơi nhé?</span></h2>
+          <p>Em cứ chọn điều em thích. Nếu giữa chừng đổi ý thì mình đổi, không sao cả.</p>
+          <div class="hero__signature" aria-hidden="true"><span>Kyrux</span><b>→</b><span>Chafy</span></div>
         </div>
         <div class="contact-sheet" aria-label="Những khoảnh khắc của em">
           <img class="contact-sheet__wide" src="30.jpeg" alt="Một khoảnh khắc đáng yêu của em">
           <img src="18.jpeg" alt="Em bên cây thông Noel">
           <img src="23.jpeg" alt="Một khoảnh khắc tinh nghịch của em">
-          <aside class="love-note"><span>P.S.</span><p>Anh chọn ảnh rất lâu vì tấm nào em cũng đáng yêu.</p></aside>
+          <aside class="love-note"><span>P.S.</span><p>Anh định chọn một tấm. Xem đi xem lại rồi tham, để cả ba luôn.</p></aside>
+          <span class="floral-sprig floral-sprig--album" aria-hidden="true"><img src="assets/love-letter-bouquet.webp" alt="" loading="lazy"></span>
+          <span class="album-ribbon" aria-hidden="true">những tấm anh thích nhất</span>
         </div>
       </section>
 
+      <aside class="date-ticket" aria-label="Lời hẹn Chủ nhật">
+        <img class="date-ticket__flowers" src="assets/love-letter-garland.webp" alt="" loading="lazy">
+        <div class="date-ticket__message"><span>Hà Nội, một hôm không vội</span><p>Để dành anh <span class="handwritten">một ngày Chủ nhật nhé.</span></p><small>Đi đâu thì em chọn. Đi cùng em thì anh chọn rồi.</small></div>
+        <div class="date-ticket__stub" aria-hidden="true"><span>CHỈ HAI ĐỨA</span><b>K ♡ C</b><i>hẹn em</i></div>
+      </aside>
+
       <section class="mission" id="mission" aria-labelledby="mission-title">
+        <span class="mission__tab" aria-hidden="true">Hồ sơ Chủ nhật</span>
+        <img class="mission__camellia" src="assets/love-letter-sprig.webp" alt="" loading="lazy">
         <div class="mission__heading">
-          <h2 id="mission-title">Em thích buổi hẹn thế nào?</h2>
-          <p>Ba câu hỏi nhỏ. Cứ chọn theo cảm giác đầu tiên của em.</p>
+          <h2 id="mission-title">Chafy chọn đi, phần còn lại để anh.</h2>
+          <p>Không có đáp án đúng đâu. Em thích phương án nào thì bấm phương án đó.</p>
         </div>
 
-        <div class="progress" aria-label="Tiến độ: bước 1 trên 3">
-          <div class="progress__meta"><span id="step-name">Mình đi đâu nhỉ?</span><span id="step-count">1 / 3</span></div>
+        <div class="progress" aria-label="Tiến độ: bước 1 trên 4">
+          <div class="progress__meta"><span id="step-name">Đi bằng gì đây?</span><span id="step-count">1 / 4</span></div>
           <div class="progress__line"><span id="progress-bar"></span></div>
         </div>
 
         <form id="date-form" novalidate>
           <div class="form-step is-active" data-step="1">
             <fieldset>
-              <legend tabindex="-1">Em muốn chúng mình đi đâu?</legend>
-              <p class="question-note">Chọn một nơi khiến em muốn sửa soạn và ra ngoài ngay.</p>
-              <div class="choice-grid choice-grid--places">
-                <label class="place-choice place-choice--wide">
-                  <input type="radio" name="place" value="Ngắm thành phố về đêm">
-                  <img src="8.jpeg" alt=""><span class="choice-overlay"></span>
-                  <span class="choice-copy"><small>A</small><strong>Ngắm thành phố về đêm</strong><span>Gió mát, ánh đèn, hai đứa mình</span></span><span class="choice-state" aria-hidden="true"><span>Chọn</span><b>Đã chọn ♡</b></span>
-                </label>
-                <label class="place-choice">
-                  <input type="radio" name="place" value="Picnic lúc hoàng hôn">
-                  <img src="17.jpeg" alt=""><span class="choice-overlay"></span>
-                  <span class="choice-copy"><small>B</small><strong>Picnic lúc hoàng hôn</strong><span>Một chiếc chăn và đồ ăn em thích</span></span><span class="choice-state" aria-hidden="true"><span>Chọn</span><b>Đã chọn ♡</b></span>
-                </label>
-                <label class="place-choice">
-                  <input type="radio" name="place" value="Cà phê bí mật">
-                  <img src="26.jpeg" alt=""><span class="choice-overlay"></span>
-                  <span class="choice-copy"><small>C</small><strong>Một quán cà phê yên tĩnh</strong><span>Ngồi cạnh nhau và nói chuyện thật lâu</span></span><span class="choice-state" aria-hidden="true"><span>Chọn</span><b>Đã chọn ♡</b></span>
-                </label>
-                <label class="place-choice place-choice--text">
-                  <input type="radio" name="place" value="Anh quyết định">
-                  <span class="choice-copy"><small>D</small><strong>Để anh quyết định</strong><span>Em chỉ cần xuất hiện. Anh giữ phần bất ngờ.</span></span><span class="choice-state" aria-hidden="true"><span>Chọn</span><b>Đã chọn ♡</b></span>
-                </label>
+              <legend tabindex="-1">Đầu tiên, em muốn mình đi bằng gì?</legend>
+              <p class="question-note">Em thấy cách nào thoải mái nhất thì chọn. Không muốn nghĩ cũng được, cứ giao anh.</p>
+              <div class="transport-list">
+                <label class="transport-choice"><input type="radio" name="transport" value="Xe máy"><span class="transport-choice__mark">A</span><span><strong>Xe máy</strong><small>Chủ động dừng đâu cũng được, hợp những kèo gần.</small></span><span class="transport-choice__state"><span>Chọn</span><b>Đã chọn ♡</b></span></label>
+                <label class="transport-choice"><input type="radio" name="transport" value="Ô tô hoặc taxi"><span class="transport-choice__mark">B</span><span><strong>Ô tô hoặc taxi</strong><small>Thoải mái hơn nếu đi xa hoặc hôm đó trời không chiều mình.</small></span><span class="transport-choice__state"><span>Chọn</span><b>Đã chọn ♡</b></span></label>
+                <label class="transport-choice"><input type="radio" name="transport" value="Xe buýt"><span class="transport-choice__mark">C</span><span><strong>Xe buýt</strong><small>Đi chậm một chút, có thêm thời gian ngồi cạnh và nói chuyện.</small></span><span class="transport-choice__state"><span>Chọn</span><b>Đã chọn ♡</b></span></label>
+                <label class="transport-choice transport-choice--note"><input type="radio" name="transport" value="Để anh sắp xếp"><span class="transport-choice__mark">D</span><span><strong>Để anh sắp xếp</strong><small>Em chọn nơi muốn đến, anh chọn cách đi hợp lý nhất.</small></span><span class="transport-choice__state"><span>Chọn</span><b>Đã chọn ♡</b></span></label>
               </div>
-              <p class="field-error" data-error="place" role="alert"></p>
+              <p class="field-error" data-error="transport" role="alert"></p>
             </fieldset>
           </div>
 
           <div class="form-step" data-step="2" hidden>
             <fieldset>
-              <legend tabindex="-1">Mình ăn gì hôm đó?</legend>
-              <p class="question-note">Không cần nghĩ lâu. Món đầu tiên làm em thấy đói là đáp án.</p>
-              <div class="food-list">
-                <label class="food-choice"><input type="radio" name="food" value="Bữa tối thật lãng mạn"><span class="food-choice__index">A</span><span><strong>Bữa tối thật lãng mạn</strong><small>Mỳ Ý, ánh nến và một chiếc bàn nhỏ</small></span><span class="food-choice__action"><span>Chọn</span><b>Đã chọn ♡</b></span></label>
-                <label class="food-choice"><input type="radio" name="food" value="Đồ nướng Hàn Quốc"><span class="food-choice__index">B</span><span><strong>Đồ nướng Hàn Quốc</strong><small>Ăn thật no, nói chuyện thật nhiều</small></span><span class="food-choice__action"><span>Chọn</span><b>Đã chọn ♡</b></span></label>
-                <label class="food-choice"><input type="radio" name="food" value="Food tour vỉa hè"><span class="food-choice__index">C</span><span><strong>Food tour vỉa hè</strong><small>Mỗi nơi một món, đi bộ qua vài con phố</small></span><span class="food-choice__action"><span>Chọn</span><b>Đã chọn ♡</b></span></label>
-                <label class="food-choice"><input type="radio" name="food" value="Một tour đồ ngọt"><span class="food-choice__index">D</span><span><strong>Một tour đồ ngọt</strong><small>Bánh, kem và bất cứ thứ gì em muốn thử</small></span><span class="food-choice__action"><span>Chọn</span><b>Đã chọn ♡</b></span></label>
+              <legend tabindex="-1">Tiếp theo, mình đi đâu chơi?</legend>
+              <p class="question-note">Anh để sẵn tám kèo cho trọn ngày Chủ nhật. Chạm vào một thẻ để chọn và mở lịch trình ngay bên dưới.</p>
+              <div class="choice-grid choice-grid--places">
+                <div class="place-option place-option--wide">
+                  <label class="place-choice">
+                    <input type="radio" name="place" value="Hồ Tây và phố đi bộ Trịnh Công Sơn">
+                    <img src="8.jpeg" alt=""><span class="choice-overlay"></span>
+                    <span class="choice-copy"><small>A · Nhẹ nhàng, ít di chuyển</small><strong>Một ngày chậm quanh Hồ Tây</strong><span>Ăn sáng muộn, dạo hồ, cà phê, ngắm hoàng hôn rồi đi chơi tối</span></span><span class="choice-state" aria-hidden="true"><span>Chọn</span><b>Đã chọn ♡</b></span>
+                  </label>
+                  <a class="place-link" href="https://thanglong.chinhphu.vn/6-nghin-nguoi-den-pho-di-bo-trinh-cong-son-sau-3-ngay-khai-truong-10323022.htm" target="_blank" rel="noopener noreferrer" aria-label="Xem thông tin phố đi bộ Trịnh Công Sơn, mở trong tab mới">Xem nơi này <span aria-hidden="true">↗</span></a>
+                </div>
+                <div class="place-option">
+                  <label class="place-choice">
+                    <input type="radio" name="place" value="Làng gốm Bát Tràng">
+                    <img src="17.jpeg" alt=""><span class="choice-overlay"></span>
+                    <span class="choice-copy"><small>B · Nặn gốm, chụp ảnh</small><strong>Bát Tràng rồi về ngắm Hồ Tây</strong><span>Sáng đi làng gốm, chiều thong thả quay về thành phố</span></span><span class="choice-state" aria-hidden="true"><span>Chọn</span><b>Đã chọn ♡</b></span>
+                  </label>
+                  <a class="place-link" href="https://battrang.hanoi.gov.vn/" target="_blank" rel="noopener noreferrer" aria-label="Xem thông tin Bát Tràng, mở trong tab mới">Xem nơi này <span aria-hidden="true">↗</span></a>
+                </div>
+                <div class="place-option">
+                  <label class="place-choice">
+                    <input type="radio" name="place" value="Làng cổ Đường Lâm">
+                    <img src="26.jpeg" alt=""><span class="choice-overlay"></span>
+                    <span class="choice-copy"><small>C · Đường làng, đồ quê</small><strong>Đường Lâm và Sơn Tây</strong><span>Đi nhà cổ, ăn trưa trong làng rồi ghé Thành cổ Sơn Tây</span></span><span class="choice-state" aria-hidden="true"><span>Chọn</span><b>Đã chọn ♡</b></span>
+                  </label>
+                  <a class="place-link" href="https://langcoduonglam.vn/" target="_blank" rel="noopener noreferrer" aria-label="Xem thông tin Làng cổ Đường Lâm, mở trong tab mới">Xem nơi này <span aria-hidden="true">↗</span></a>
+                </div>
+                <div class="place-option">
+                  <label class="place-choice">
+                    <input type="radio" name="place" value="Vườn quốc gia Ba Vì">
+                    <img src="20.jpeg" alt=""><span class="choice-overlay"></span>
+                    <span class="choice-copy"><small>D · Rừng núi, dậy sớm</small><strong>Một ngày trốn lên Ba Vì</strong><span>Đi bộ giữa rừng, ăn trưa trên núi rồi về Hà Nội ăn tối</span></span><span class="choice-state" aria-hidden="true"><span>Chọn</span><b>Đã chọn ♡</b></span>
+                  </label>
+                  <a class="place-link" href="https://vuonquocgiabavi.com.vn/danh-muc/diem-tuyen-du-lich/" target="_blank" rel="noopener noreferrer" aria-label="Xem các điểm du lịch tại Vườn quốc gia Ba Vì, mở trong tab mới">Xem nơi này <span aria-hidden="true">↗</span></a>
+                </div>
+                <div class="place-option place-option--wide">
+                  <label class="place-choice">
+                    <input type="radio" name="place" value="Hồ Hoàn Kiếm và phố cổ">
+                    <img src="11.jpeg" alt=""><span class="choice-overlay"></span>
+                    <span class="choice-copy"><small>E · Gần, nhiều món ngon</small><strong>Lang thang phố cổ cả ngày</strong><span>Ăn sáng, đi bộ quanh hồ, ghé bảo tàng rồi săn món ngon trong phố</span></span><span class="choice-state" aria-hidden="true"><span>Chọn</span><b>Đã chọn ♡</b></span>
+                  </label>
+                  <a class="place-link" href="https://sodulich.hanoi.gov.vn/" target="_blank" rel="noopener noreferrer" aria-label="Xem cổng thông tin du lịch Hà Nội, mở trong tab mới">Xem nơi này <span aria-hidden="true">↗</span></a>
+                </div>
+                <div class="place-option">
+                  <label class="place-choice">
+                    <input type="radio" name="place" value="Văn Miếu và Hoàng thành Thăng Long">
+                    <img src="16.jpeg" alt=""><span class="choice-overlay"></span>
+                    <span class="choice-copy"><small>F · Lịch sử, nhiều góc đẹp</small><strong>Văn Miếu và Hoàng thành</strong><span>Một ngày đi chậm qua hai nơi đẹp và rất Hà Nội</span></span><span class="choice-state" aria-hidden="true"><span>Chọn</span><b>Đã chọn ♡</b></span>
+                  </label>
+                  <a class="place-link" href="https://vanmieu.gov.vn/vi" target="_blank" rel="noopener noreferrer" aria-label="Xem thông tin Văn Miếu Quốc Tử Giám, mở trong tab mới">Xem nơi này <span aria-hidden="true">↗</span></a>
+                </div>
+                <div class="place-option">
+                  <label class="place-choice">
+                    <input type="radio" name="place" value="Việt Phủ Thành Chương và Sóc Sơn">
+                    <img src="24.jpeg" alt=""><span class="choice-overlay"></span>
+                    <span class="choice-copy"><small>G · Kiến trúc, cây xanh</small><strong>Việt Phủ rồi trốn lên Sóc Sơn</strong><span>Xem nhà cổ, ăn trưa ngoài thành và ngồi cà phê giữa nhiều cây</span></span><span class="choice-state" aria-hidden="true"><span>Chọn</span><b>Đã chọn ♡</b></span>
+                  </label>
+                  <a class="place-link" href="https://vietphuthanhchuong.com.vn/" target="_blank" rel="noopener noreferrer" aria-label="Xem thông tin Việt Phủ Thành Chương, mở trong tab mới">Xem nơi này <span aria-hidden="true">↗</span></a>
+                </div>
+                <div class="place-option">
+                  <label class="place-choice">
+                    <input type="radio" name="place" value="Thiên đường Bảo Sơn">
+                    <img src="29.jpeg" alt=""><span class="choice-overlay"></span>
+                    <span class="choice-copy"><small>H · Vui chơi, không cần nghiêm túc</small><strong>Một ngày chơi hết mình</strong><span>Thủy cung, trò chơi, xem lịch biểu diễn rồi tối đi ăn bù năng lượng</span></span><span class="choice-state" aria-hidden="true"><span>Chọn</span><b>Đã chọn ♡</b></span>
+                  </label>
+                  <a class="place-link" href="https://baosonparadise.vn/" target="_blank" rel="noopener noreferrer" aria-label="Xem thông tin Thiên đường Bảo Sơn, mở trong tab mới">Xem nơi này <span aria-hidden="true">↗</span></a>
+                </div>
               </div>
-              <p class="field-error" data-error="food" role="alert"></p>
+              <aside class="plan-preview" id="plan-preview" aria-live="polite" hidden>
+                <div class="plan-preview__heading">
+                  <span>Lịch trình Chủ nhật</span>
+                  <h3 id="plan-title"></h3>
+                  <p id="plan-note"></p>
+                </div>
+                <ol class="plan-preview__list" id="plan-list"></ol>
+              </aside>
+              <p class="field-error" data-error="place" role="alert"></p>
             </fieldset>
           </div>
 
           <div class="form-step" data-step="3" hidden>
             <fieldset>
-              <legend tabindex="-1">Nói anh nghe một điều nhé</legend>
-              <p class="question-note">Một mong muốn cho buổi hẹn, hoặc điều em đang muốn nói với anh.</p>
+              <legend tabindex="-1">Rồi mình ăn gì?</legend>
+              <p class="question-note">Món nào đọc tới mà thấy đói thì chọn món đó.</p>
+              <div class="food-list">
+                <label class="food-choice"><input type="radio" name="food" value="Bữa tối xinh xắn"><span class="food-choice__index">A</span><span><strong>Một bữa tối xinh xắn</strong><small>Món gì cũng được, miễn là mình ngồi lâu một chút</small></span><span class="food-choice__action"><span>Chọn</span><b>Đã chọn ♡</b></span></label>
+                <label class="food-choice"><input type="radio" name="food" value="Đồ nướng Hàn Quốc"><span class="food-choice__index">B</span><span><strong>Kèo nướng no căng</strong><small>Ăn tới khi cả hai cùng bảo thôi, đủ rồi</small></span><span class="food-choice__action"><span>Chọn</span><b>Đã chọn ♡</b></span></label>
+                <label class="food-choice"><input type="radio" name="food" value="Đi ăn mỗi chỗ một ít"><span class="food-choice__index">C</span><span><strong>Đi ăn mỗi chỗ một ít</strong><small>Đi bộ, thấy món gì ngon thì mình ghé</small></span><span class="food-choice__action"><span>Chọn</span><b>Đã chọn ♡</b></span></label>
+                <label class="food-choice"><input type="radio" name="food" value="Chỉ ăn đồ ngọt"><span class="food-choice__index">D</span><span><strong>Chỉ ăn đồ ngọt</strong><small>Hơi thiếu lành mạnh một chút, nhưng chắc vui</small></span><span class="food-choice__action"><span>Chọn</span><b>Đã chọn ♡</b></span></label>
+              </div>
+              <p class="field-error" data-error="food" role="alert"></p>
+            </fieldset>
+          </div>
+
+          <div class="form-step" data-step="4" hidden>
+            <fieldset>
+              <legend tabindex="-1">Còn điều gì anh cần biết không?</legend>
+              <p class="question-note">Em muốn ăn gì thêm, ghét chỗ nào, hay chỉ muốn nhắn anh một câu cũng được.</p>
               <div class="letter-field">
-                <label for="message">Lời nhắn của em</label>
-                <textarea id="message" name="message" rows="6" maxlength="500" placeholder="Viết ở đây..."></textarea>
+                <label for="message">Nhắn riêng cho anh</label>
+                <textarea id="message" name="message" rows="6" maxlength="500" placeholder="Ví dụ: nhớ đến đúng giờ..."></textarea>
                 <span class="character-count"><b id="character-count">0</b>/500</span>
               </div>
-              <label class="date-field" for="date-choice"><span>Ngày em thấy thuận tiện</span><input type="date" name="date" id="date-choice"></label>
+              <label class="date-field" for="date-choice"><span>Chủ nhật nào em rảnh nhất?</span><input type="date" name="date" id="date-choice"></label>
+              <p class="field-error" data-error="date" role="alert"></p>
               <p class="field-error" data-error="message" role="alert"></p>
             </fieldset>
           </div>
@@ -123,19 +230,21 @@
       </section>
 
       <section class="final-note" aria-label="Lời nhắn cuối">
+        <span class="floral-sprig floral-sprig--closing" aria-hidden="true"><img src="assets/love-letter-bouquet.webp" alt="" loading="lazy"></span>
+        <span class="final-note__seal" aria-hidden="true">K<span>♡</span>C</span>
         <img src="28.jpeg" alt="Một kỷ niệm đẹp của em">
-        <blockquote><p>Địa điểm có thể thay đổi. Món ăn cũng vậy. Người anh muốn đi cùng vẫn luôn là em.</p><footer>Người thương em ♡</footer></blockquote>
+        <blockquote><p>Nói thật nhé, đi đâu cũng được. Miễn hôm đó người đi cạnh anh <span class="handwritten">là em.</span></p><footer>Kyrux, viết hơi vụng nhưng rủ em là thật ♡</footer></blockquote>
       </section>
 
-      <footer class="page-footer"><p>THƯ GỬI EM <span id="current-year"></span></p><p>Một món quà riêng tư, không thu mật khẩu hoặc dữ liệu nhạy cảm.</p></footer>
+      <footer class="page-footer"><p>KYRUX × CHAFY <span id="current-year"></span></p><p>Một bức thư chỉ có đúng hai người cần hiểu.</p></footer>
     </section>
   </main>
 
   <dialog class="success-dialog" id="success-dialog">
-    <span class="dialog-label">Thư đã gửi</span>
-    <h2>Thư đến tay anh rồi.</h2>
-    <p id="success-summary">Phần còn lại cứ để anh lo nhé.</p>
-    <button class="button button--accent" id="close-success" type="button"><span>Khép thư</span></button>
+    <span class="dialog-label">Kyrux nhận được rồi</span>
+    <h2>Oke Chafy, để anh lo phần còn lại.</h2>
+    <p id="success-summary">Kyrux ghi lại hết rồi.</p>
+    <button class="button button--accent" id="close-success" type="button"><span>Đóng lại</span></button>
   </dialog>
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
 </body>
